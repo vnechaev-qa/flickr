@@ -72,7 +72,7 @@ extension ProfileViewController: UICollectionViewDataSource {
         if indexPath.row % 2 == 0 {
             pushDetailedViewController(photo: model!) // пушится через навигейшнконтроллер, до фиксов Андрея ниче не работало
         } else {
-            presentDetailedWith(photo: model!) //lel
+            presentDetailedWith(photo: model!) //new test commit
         }
     }
     
