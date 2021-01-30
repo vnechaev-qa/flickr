@@ -23,11 +23,7 @@ class Api_wrapper {
             "page": page,
             "nojsoncallback": 1
         ]
-//
-//        if let searchText = searchText {
-//            params["method"] = "flickr.photos.search"
-//            params["text"] = searchText
-//        }
+        
         
         let method: HTTPMethod = .GET
         
@@ -44,16 +40,20 @@ class Api_wrapper {
     }
     
     class func searchPhoto(searchText: String,
+                           page: Int,
+                           per_page: Int,
                            success: @escaping (_ json: Any) -> Void,
                            failure: @escaping (_ error: String?) -> Void) {
         
         let url = Constants.API_const.baseUrl
         
-        var params: [String: AnyHashable] = [
+        let params: [String: AnyHashable] = [
             "method": "flickr.photos.search",
             "api_key": Constants.API_const.token,
             "format": "json",
             "nojsoncallback": 1,
+            "per_page": per_page,
+            "page": page,
             "text": searchText
         ]
         

@@ -60,19 +60,6 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-//extension SearchViewController {
-//    func loadSearchPhotos(searchText: String? = nil) {
-//        presenter.loadData(searchText: searchText) { [weak self] (photos) in
-//            guard let strongSelf = self else { return }
-//
-//            if let photos = photos {
-//                strongSelf
-//            }
-//        }
-//    }
-//
-//}
-
 extension SearchViewController {
     func registerNib() {
         let nib = UINib(nibName: "PhotoCollectionViewCell", bundle: nil)

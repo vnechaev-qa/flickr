@@ -21,6 +21,7 @@ class SearchPresenter: SearchPresenterProtocol {
     var searchText = ""
     private let urlCreaterService = UrlCreaterService()
     var dataSource: [PhotoModel] = []
+    var photos: PhotoModel!
     
     func numberOfPhotos() -> Int {
         return dataSource.count
@@ -34,9 +35,20 @@ class SearchPresenter: SearchPresenterProtocol {
         loadPhotos()
     }
     
+//    func searchPhoto() {
+//        loadData() { [weak self] photos in
+//            guard let strongSelf = self else { return }
+//            if let photos = photos {
+//                strongSelf.photos
+//                strongSelf.view.reloadData()
+//            }
+//        }
+//    }
+    
     func loadPhotos() {
-        Api_wrapper.getInteresPhoto(page: page,
-                                    per_page: per_page) { [weak self] (response) in
+        Api_wrapper.searchPhoto(searchText: searchText,
+                                page: page,
+                                per_page: per_page) { [weak self] (response) in
             
             DispatchQueue.main.async {
                 guard let self = self else { return }
